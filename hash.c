@@ -1,11 +1,13 @@
 #include <stdio.h>
 #define tam 1000
 
+typedef clave;
+
 typedef struct tnodo{
 
-  	int CLAVE;
+  	clave CLAVE;
   	int peroido, usado //usado es un booliano para saber si el nodo ha sido usado
-	float cmercancia;
+	float cmercancia, arancel;
 	char pais[20],unidad[6];
 	 
   struct nodo *siguiente;
@@ -15,7 +17,7 @@ typedef struct tnodo{
 nodo vector [tam]
 
 
-void leer_archibo(){
+void leer_archivo(){
 	
 int PERIODO;
 float CMERCANCIA;
@@ -37,6 +39,8 @@ char PAIS[20],UNIDAD[6],come;
 				fscanf(ptr,"%c",&come);
 				fscanf(ptr,"%c",&PAIS);
 				fscanf(ptr,"%c",&come);
+				fscanf(ptr,"%f",&arancel);
+				fscanf(ptr,"%c",&come);
 				fscanf(ptr,"%f",&CMERCANCIA);
 				fscanf(ptr,"%c",&come);
 				fscanf(ptr,"%c",&UNIDAD);
@@ -46,10 +50,10 @@ char PAIS[20],UNIDAD[6],come;
 	    }	
 }
 
-hash_chaining(float cmercancia,int clave){
+hash_chaining(float arancel,clave CLAVE){
 	
 	
-	clave = (cmercancia%11);
+	clave = (arancel%4000);
 	return(clave);
 		
 }
@@ -61,6 +65,7 @@ introducir_enarreglo(){
 		
 		vector[clave].periodo=PERIODO;
 		vector[clave].pais=PAIS;
+		vector[clave].arancel=arancel;
 		vector[clave].cmercancia=CMERCANCIA;
 		vector[clave].unidad=UNIDAD;
 		vector[clave].usado=1;
@@ -72,6 +77,7 @@ introducir_enarreglo(){
 			aux =malloc ()//pedir el nuevo nodo
 			vector[clave].periodo=PERIODO;
 			aux.pais=PAIS;
+			vector[clave].arancel=arancel;
 			aux.cmercancia=CMERCANCIA;
 			aux.unidad=UNIDAD;
 		}
@@ -86,6 +92,8 @@ introducir_enarreglo(){
 
 main(){
 	
-	
+	leer archivo();
+	hash_chaining()
+	introducir_enarreglo();
 }
 
